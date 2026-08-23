@@ -4,7 +4,6 @@ export default function Page() {
   return (
     <main>
       <div className="stage" aria-hidden="true">
-        <div className="pointer" />
         <div className="neko-track">
           <div className="neko" />
         </div>
