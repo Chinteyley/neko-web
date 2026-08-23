@@ -1,0 +1,8 @@
+/.next/
+/node_modules/
+/out/
+*.log
+.DS_Store
+.vercel
+# next-agents-md
+.next-docs/
