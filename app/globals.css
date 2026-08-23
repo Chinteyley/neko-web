@@ -1,7 +1,6 @@
 :root {
   --bg: #000;
   --fg: #ececec;
-  --mute: #8a8a8a;
   --neko: clamp(192px, 52vw, 288px);
   color-scheme: dark;
 }
@@ -43,20 +42,10 @@ h1 {
   letter-spacing: -0.04em;
 }
 
-.sub,
-.note {
+.sub {
   margin: 0;
   max-width: 22rem;
-}
-
-.sub {
   color: #c8c8c8;
-}
-
-.note {
-  margin-top: 0.35rem;
-  color: var(--mute);
-  font-size: 0.92rem;
 }
 
 .dl {

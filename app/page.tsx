@@ -16,9 +16,6 @@ export default function Page() {
           download for macOS
         </a>
       </p>
-      <p className="note">
-        free. a sign extra may come later. neko stays free.
-      </p>
     </main>
   );
 }
