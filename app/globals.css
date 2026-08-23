@@ -1,0 +1,243 @@
+:root {
+  --bg: #000;
+  --fg: #ececec;
+  --mute: #8a8a8a;
+  --neko: clamp(192px, 52vw, 288px);
+  --run: min(42vw, 14rem);
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  padding: 2.5rem 1.25rem 3rem;
+  text-align: center;
+}
+
+h1 {
+  margin: 1.1rem 0 0;
+  font-size: clamp(2.4rem, 8vw, 3.4rem);
+  font-weight: 560;
+  letter-spacing: -0.04em;
+}
+
+.sub,
+.note {
+  margin: 0;
+  max-width: 22rem;
+}
+
+.sub {
+  color: #c8c8c8;
+}
+
+.note {
+  margin-top: 0.35rem;
+  color: var(--mute);
+  font-size: 0.92rem;
+}
+
+.dl {
+  display: inline-block;
+  margin-top: 0.55rem;
+  padding: 0.7rem 1.15rem;
+  border-radius: 999px;
+  background: #f4f4f4;
+  color: #111;
+  text-decoration: none;
+  font-weight: 550;
+}
+
+.dl:hover {
+  background: #fff;
+}
+
+.dl:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.stage {
+  position: relative;
+  width: min(92vw, 34rem);
+  height: calc(var(--neko) + 1.25rem);
+}
+
+.pointer {
+  position: absolute;
+  right: 9%;
+  bottom: calc(var(--neko) * 0.42);
+  width: 10px;
+  height: 16px;
+  background: #fff;
+  clip-path: polygon(0 0, 100% 62%, 58% 62%, 78% 100%, 58% 100%, 38% 62%, 0 72%);
+  animation: pointer-fade 14s step-end infinite;
+}
+
+.neko {
+  position: absolute;
+  left: 4%;
+  bottom: 0;
+  width: var(--neko);
+  height: var(--neko);
+  background: url("/sprites.png") no-repeat;
+  background-size: calc(var(--neko) * 6);
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  animation:
+    neko-frames 14s step-end infinite,
+    neko-walk 14s linear infinite;
+}
+
+/* sprite(col, row) on the 6x6 / 32px sheet → -row, -col */
+@keyframes neko-frames {
+  0%,
+  2.4% {
+    background-position: calc(var(--neko) * -4) calc(var(--neko) * -3);
+  }
+  2.5%,
+  4.9% {
+    background-position: calc(var(--neko) * -4) calc(var(--neko) * -2);
+  }
+  5%,
+  7.4% {
+    background-position: calc(var(--neko) * -4) calc(var(--neko) * -3);
+  }
+  7.5%,
+  9.9% {
+    background-position: calc(var(--neko) * -4) calc(var(--neko) * -2);
+  }
+  10%,
+  12.4% {
+    background-position: calc(var(--neko) * -4) calc(var(--neko) * -3);
+  }
+  12.5%,
+  14.9% {
+    background-position: calc(var(--neko) * -4) calc(var(--neko) * -2);
+  }
+  15%,
+  17.4% {
+    background-position: calc(var(--neko) * -4) calc(var(--neko) * -3);
+  }
+  17.5%,
+  19.9% {
+    background-position: calc(var(--neko) * -4) calc(var(--neko) * -2);
+  }
+  20%,
+  22.4% {
+    background-position: calc(var(--neko) * -4) calc(var(--neko) * -3);
+  }
+  22.5%,
+  24.9% {
+    background-position: calc(var(--neko) * -4) calc(var(--neko) * -2);
+  }
+  25%,
+  27.4% {
+    background-position: calc(var(--neko) * -4) calc(var(--neko) * -3);
+  }
+  27.5%,
+  29.9% {
+    background-position: calc(var(--neko) * -4) calc(var(--neko) * -2);
+  }
+  30%,
+  32.4% {
+    background-position: calc(var(--neko) * -4) calc(var(--neko) * -3);
+  }
+  32.5%,
+  34.9% {
+    background-position: calc(var(--neko) * -4) calc(var(--neko) * -2);
+  }
+  35%,
+  49.9% {
+    background-position: calc(var(--neko) * -4) 0;
+  }
+  50%,
+  57.4% {
+    background-position: calc(var(--neko) * -3) calc(var(--neko) * -4);
+  }
+  57.5%,
+  64.9% {
+    background-position: calc(var(--neko) * -2) calc(var(--neko) * -4);
+  }
+  65%,
+  72.4% {
+    background-position: calc(var(--neko) * -3) calc(var(--neko) * -4);
+  }
+  72.5%,
+  79.9% {
+    background-position: calc(var(--neko) * -2) calc(var(--neko) * -4);
+  }
+  80%,
+  87.4% {
+    background-position: calc(var(--neko) * -3) calc(var(--neko) * -4);
+  }
+  87.5%,
+  94.9% {
+    background-position: calc(var(--neko) * -2) calc(var(--neko) * -4);
+  }
+  95%,
+  100% {
+    background-position: calc(var(--neko) * -3) calc(var(--neko) * -4);
+  }
+}
+
+@keyframes neko-walk {
+  0% {
+    transform: translateX(0);
+  }
+  35%,
+  100% {
+    transform: translateX(var(--run));
+  }
+}
+
+@keyframes pointer-fade {
+  0%,
+  40% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.12;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .neko,
+  .pointer {
+    animation: none;
+  }
+
+  .neko {
+    background-position: calc(var(--neko) * -4) 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .pointer {
+    display: none;
+  }
+}
