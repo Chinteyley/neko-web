@@ -3,7 +3,7 @@
   --fg: #ececec;
   --mute: #8a8a8a;
   --neko: clamp(192px, 52vw, 288px);
-  --run: min(42vw, 14rem);
+  --run: min(36vw, 12rem);
   color-scheme: dark;
 }
 
@@ -97,19 +97,23 @@ h1 {
   animation: pointer-fade 14s step-end infinite;
 }
 
-.neko {
+.neko-track {
   position: absolute;
-  left: 4%;
+  left: 6%;
   bottom: 0;
+  animation: neko-walk 14s linear infinite;
+}
+
+.neko {
   width: var(--neko);
   height: var(--neko);
   background: url("/sprites.png") no-repeat;
   background-size: calc(var(--neko) * 6);
   image-rendering: pixelated;
   image-rendering: crisp-edges;
-  animation:
-    neko-frames 14s step-end infinite,
-    neko-walk 14s linear infinite;
+  animation: neko-frames 14s infinite;
+  animation-timing-function: step-start;
+  animation-timing-function: discrete;
 }
 
 /* sprite(col, row) on the 6x6 / 32px sheet → -row, -col */
@@ -227,14 +231,18 @@ h1 {
 
 @media (prefers-reduced-motion: reduce) {
   .neko,
+  .neko-track,
   .pointer {
     animation: none;
   }
 
-  .neko {
-    background-position: calc(var(--neko) * -4) 0;
+  .neko-track {
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  .neko {
+    background-position: calc(var(--neko) * -4) 0;
   }
 
   .pointer {

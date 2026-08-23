@@ -5,7 +5,9 @@ export default function Page() {
     <main>
       <div className="stage" aria-hidden="true">
         <div className="pointer" />
-        <div className="neko" />
+        <div className="neko-track">
+          <div className="neko" />
+        </div>
       </div>
       <h1>neko</h1>
       <p className="sub">a kitten in the mac menu bar</p>
