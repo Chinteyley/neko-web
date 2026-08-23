@@ -76,10 +76,11 @@ h1 {
 
 .pointer {
   position: absolute;
-  right: 9%;
+  left: 50%;
   bottom: calc(var(--neko) * 0.42);
   width: 10px;
   height: 16px;
+  margin-left: calc(var(--neko) * 0.12);
   background: #fff;
   clip-path: polygon(0 0, 100% 62%, 58% 62%, 78% 100%, 58% 100%, 38% 62%, 0 72%);
   animation: pointer-fade 14s step-end infinite;
@@ -87,7 +88,7 @@ h1 {
 
 .neko-track {
   position: absolute;
-  left: 6%;
+  left: 50%;
   bottom: 0;
   animation: neko-walk 14s linear infinite;
 }
@@ -196,13 +197,14 @@ h1 {
   }
 }
 
+/* Sleep frames sit ~2px right in the 32px cell; nudge so the drawn cat matches the title axis. */
 @keyframes neko-walk {
   0% {
-    transform: translateX(0);
+    transform: translateX(calc(-50% - min(18vw, 6rem)));
   }
   35%,
   100% {
-    transform: translateX(min(42vw, 16rem));
+    transform: translateX(calc(-50% - (var(--neko) * 2 / 32)));
   }
 }
 
