@@ -3,7 +3,6 @@
   --fg: #ececec;
   --mute: #8a8a8a;
   --neko: clamp(192px, 52vw, 288px);
-  --run: min(36vw, 12rem);
   color-scheme: dark;
 }
 
@@ -82,7 +81,7 @@ h1 {
 
 .stage {
   position: relative;
-  width: min(92vw, 34rem);
+  width: min(94vw, 40rem);
   height: calc(var(--neko) + 1.25rem);
 }
 
@@ -214,7 +213,7 @@ h1 {
   }
   35%,
   100% {
-    transform: translateX(var(--run));
+    transform: translateX(min(42vw, 16rem));
   }
 }
 
