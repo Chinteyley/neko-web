@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
+import { site } from "@/lib/site";
 import "./globals.css";
 
-const site = "https://neko.ctey.dev";
 const title = "neko";
 const description = "a kitten in the mac menu bar";
 const ogImage = `${site}/og.png`;
@@ -14,6 +14,10 @@ export const metadata: Metadata = {
   applicationName: "neko",
   alternates: {
     canonical: site,
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
   openGraph: {
     type: "website",
