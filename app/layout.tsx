@@ -1,17 +1,48 @@
 import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
-import { site } from "@/lib/site";
+import {
+  authorName,
+  authorUrl,
+  description,
+  downloadUrl,
+  imageAlt,
+  projectPageUrl,
+  repoUrl,
+  site,
+  title,
+} from "@/lib/site";
 import "./globals.css";
 
-const title = "neko";
-const description = "a kitten in the mac menu bar";
 const ogImage = `${site}/og.png`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Neko",
+  description,
+  applicationCategory: "UtilitiesApplication",
+  operatingSystem: "macOS",
+  url: site,
+  downloadUrl,
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+  author: {
+    "@type": "Person",
+    name: authorName,
+    url: authorUrl,
+  },
+  sameAs: [repoUrl, projectPageUrl],
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(site),
   title,
   description,
-  applicationName: "neko",
+  applicationName: "Neko",
+  authors: [{ name: authorName, url: authorUrl }],
   alternates: {
     canonical: site,
   },
@@ -24,14 +55,14 @@ export const metadata: Metadata = {
     url: site,
     title,
     description,
-    siteName: "neko",
+    siteName: "Neko",
     locale: "en_US",
     images: [
       {
         url: ogImage,
         width: 1200,
         height: 630,
-        alt: "neko",
+        alt: imageAlt,
       },
     ],
   },
@@ -39,7 +70,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: [ogImage],
+    images: [{ url: ogImage, alt: imageAlt }],
   },
   icons: {
     icon: "/favicon.png",
@@ -58,7 +89,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+      </body>
     </html>
   );
 }
