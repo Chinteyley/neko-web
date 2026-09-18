@@ -1,4 +1,4 @@
-import { downloadHref, projectPageUrl } from "@/lib/site";
+import { downloadHref, projectPageUrl, repoUrl } from "@/lib/site";
 
 export default function Page() {
   return (
@@ -29,6 +29,9 @@ export default function Page() {
           <a href={projectPageUrl}>Neko project page</a>.
         </p>
       </section>
+      <footer className="foot">
+        <a href={repoUrl}>source</a>
+      </footer>
     </>
   );
 }

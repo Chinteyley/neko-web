@@ -18,6 +18,9 @@ body {
 }
 
 body {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   font-size: 1.05rem;
   line-height: 1.45;
@@ -25,7 +28,7 @@ body {
 }
 
 main {
-  min-height: 100dvh;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,6 +67,27 @@ h1 {
 }
 
 .dl:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.foot {
+  padding: 0 1.25rem 1.35rem;
+  text-align: center;
+}
+
+.foot a {
+  color: #7a7a7a;
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+.foot a:hover {
+  color: #c8c8c8;
+}
+
+.foot a:focus-visible {
   outline: 2px solid #fff;
   outline-offset: 3px;
 }
