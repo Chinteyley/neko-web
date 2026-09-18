@@ -1,4 +1,4 @@
-import { downloadUrl, projectPageUrl } from "@/lib/site";
+import { downloadHref, projectPageUrl, repoUrl } from "@/lib/site";
 
 export default function Page() {
   return (
@@ -12,7 +12,7 @@ export default function Page() {
         <h1>neko</h1>
         <p className="sub">a kitten in the mac menu bar</p>
         <p>
-          <a className="dl" href={downloadUrl}>
+          <a className="dl" href={downloadHref}>
             download for macOS
           </a>
         </p>
@@ -29,6 +29,9 @@ export default function Page() {
           <a href={projectPageUrl}>Neko project page</a>.
         </p>
       </section>
+      <footer className="foot">
+        <a href={repoUrl}>source</a>
+      </footer>
     </>
   );
 }
