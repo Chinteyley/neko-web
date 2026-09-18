@@ -10,7 +10,11 @@ export const imageAlt = "Neko — Free macOS menu bar kitten";
 export const authorName = "Chintey";
 export const authorUrl = "https://chintey.com";
 
+/** JSON-LD / SEO fallback. The button uses `downloadHref` instead. */
 export const downloadUrl = "https://github.com/Chinteyley/neko/releases/latest";
+
+/** Same-origin CTA. `/download` 302s to the latest macOS package. */
+export const downloadHref = "/download";
 
 export const projectPageUrl = "https://ctey.dev/docs/projects/neko";
 
