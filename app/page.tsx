@@ -30,7 +30,9 @@ export default function Page() {
         </p>
       </section>
       <footer className="foot">
-        <a href={repoUrl}>source</a>
+        <a href={repoUrl} target="_blank" rel="noopener">
+          source
+        </a>
       </footer>
     </>
   );
